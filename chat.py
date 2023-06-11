@@ -8,7 +8,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 pdf_path = "./docs/ms-partner-agreement.pdf"
 
