@@ -1,9 +1,37 @@
-# PDF Query
+# PDF Query using OpenAI API
 
-A simple code for data retrival from a large PDF file
+A simple solution for data retrival from a large PDF file
+
+## Context
+The OpenAI API introduces a new programmable approach for retrieving data from a raw text file using AI. We can easily create a prompt by combining raw text content and the data fields we wish to extract from the text. We then send this prompt to OpenAI in string format. By using a well-crafted prompt, we can also specify the desired response format, such as JSON or YAML, which greatly enhances the convenience of the extraction process. A great example exemplifying this is as follows:
+
+Prompt:
+```
+Want to extract fields: "PO Number", "Total Amount" and "Delivery Address".
+    Return result in JSON format without any explanation. 
+    The PO content is as follows:
+    %s
+```
+Note that the `%s` will be replaced by the raw text content and here is a sample output:
+```
+{
+  "PO Number": "PO-003847945",
+  "Total Amount": "1,485.00",
+  "Delivery Address": "Peera Consumer Good Co.(QSC), P.O.Box 3371, Dohe, QAT"
+}
+```
+
+## Problem
+There is a limitation on the number of tokens that can be sent to the OpenAI API, and this applies not only to OpenAI but also to other LLM models. To put it simply, tokens can be thought of as words. For example, the token limit for `gpt-35-turbo` is 4096 tokens. That means the above approach doesn't work for the large text file (e.g. a file with 100 pages or even less)
+
+## Solution
+- Split the file into smaller chunks that are smaller than the token limitation.
+- Utilize vector databases such as `FAISS` or `Chroma` to store these chunks.
+- Use LLM to search for related chunks in the database for each data retrieval request and summarize the information to obtain the final result.
+
+Refer to `chat.py` the details
 
 ## Run sample code
-
 Prerequisites:
 - Python 3.6+
 - [Virtualenv](https://docs.python.org/3/library/venv.html)
