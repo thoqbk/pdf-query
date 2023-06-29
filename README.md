@@ -1,6 +1,6 @@
 # PDF Query using OpenAI API
 
-A simple solution for data retrival from a large PDF file
+A simple solution for data retrival from large PDF files
 
 ## Context
 The OpenAI API introduces a new programmable approach for retrieving data from a raw text file using AI. We can easily create a prompt by combining raw text content and the data fields we wish to extract from the text. We then send this prompt to OpenAI in string format. By using a well-crafted prompt, we can also specify the desired response format, such as JSON or YAML, which greatly enhances the convenience of the extraction process. A great example exemplifying this is as follows:
