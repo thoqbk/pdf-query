@@ -54,9 +54,9 @@ os.environ["OPENAI_API_KEY"] = "YOUR-OPEN-AI-API-KEY"
 ```
 - run the code and ask questions
 ```
-python chat.py 
-Enter a query: what is the name of the document?
-The name of the document is the "Microsoft Partner Agreement".
-Enter a query: what is the legal entity in this document?
-The legal entity in this document is Microsoft.
+> python chat.py 
+> Enter a query: what is the name of the document?
+> The name of the document is the "Microsoft Partner Agreement".
+> Enter a query: what is the legal entity in this document?
+> The legal entity in this document is Microsoft.
 ```
